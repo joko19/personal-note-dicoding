@@ -39,7 +39,7 @@ function ListNote({
             <div className="flex gap-2 mt-2">
               <button
                 className="bg-red-500 hover:bg-red-700 p-1 text-white rounded"
-                onClick={() => handleDelete(index)}
+                onClick={() => handleDelete(item.id)}
               >
                 Delete
               </button>

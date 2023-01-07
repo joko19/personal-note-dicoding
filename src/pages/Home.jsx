@@ -36,9 +36,12 @@ function Home() {
     }
   };
 
-  const handleDelete = (index) => {
+  const handleDelete = (id) => {
     let dataTemp = [...data];
-    dataTemp.splice(index, 1);
+    dataTemp.splice(
+      dataTemp.findIndex((e) => e.id === id),
+      1
+    );
     setData(dataTemp);
   };
 
