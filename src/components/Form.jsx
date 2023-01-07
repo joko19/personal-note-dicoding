@@ -4,6 +4,7 @@ import { Error } from "./Error";
 function Form({ title, setTitle, body, setBody, error, save }) {
   return (
     <section className="flex flex-col gap-2 max-w-3xl mx-auto mt-4">
+        <a href="https://personal-notes-dicoding.jokoslamet.id" target="_blank" className="text-blue-500 text-center">Klik disini untuk mengunjungi projects</a>
       {error && !title && <Error type="Judul" />}
       <input
         type="text"
