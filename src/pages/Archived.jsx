@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {Header} from "../components/Header";
-import { getActiveNotes } from "../utils/local-data";
+import { getArchivedNotes } from "../utils/local-data";
 
-function Home() {
-  const data = getActiveNotes();
+function Archived() {
+  const data = getArchivedNotes();
+
   return (
     <div className="max-w-3xl mx-auto">
       <Header />
@@ -26,4 +27,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Archived;

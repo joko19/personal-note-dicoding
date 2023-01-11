@@ -1,18 +1,45 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function Header({ search, setSearch }) {
+export function Header() {
+  const { pathname } = useLocation();
+  const TABS = [
+    {
+      label: "Active",
+      url: "/",
+    },
+    {
+      label: "Archived",
+      url: "/archived",
+    },
+  ];
+
   return (
-    <header className="flex justify-between items-center bg-gray-500 p-4">
-      <h1 className="text-white text-4xl w-full">Personal Notes</h1>
-      <input
-        type="text"
-        placeholder="Cari..."
-        className="border p-2 mx-auto rounded focus:outline-none mb-2"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+    <header>
+      <div className="flex py-4 gap-4">
+        <h1 className="text-gray-500 text-4xl my-auto">Notes</h1>
+      </div>
+      <div className="flex justify-between border-b">
+        <div className="flex gap-4">
+          {TABS.map((item, index) => (
+            <Link
+              to={item.url}
+              key={index}
+              className={`${
+                item.url === pathname
+                  ? "font-bold border-b-2 border-black"
+                  : "text-gray-500"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <Link to="/add" className="text-blue-500">
+          + Add Note
+        </Link>
+      </div>
     </header>
   );
 }
-
-export default Header;
