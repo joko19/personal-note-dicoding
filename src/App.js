@@ -10,8 +10,10 @@ import Register from "./pages/Register";
 import { getAccessToken, getUserLogged } from "./utils/network-data";
 
 function PrivateRoute({ children }) {
+  const { data } = getUserLogged();
   const token = getAccessToken();
-  return token ? children : <Navigate to="/login" />;
+
+  return !data && !token ? <Navigate to="/login" /> : children;
 }
 
 function App() {

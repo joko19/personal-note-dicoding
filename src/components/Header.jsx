@@ -14,7 +14,6 @@ export function Header() {
 
   useEffect(() => {
     getUserLogged().then((res) => setData(res.data));
-    getUserLogged().then((res) => console.log(res));
   }, []);
   const TABS = [
     {

@@ -23,21 +23,21 @@ function Register() {
         <div className="flex flex-col gap-2 mt-6">
           <input
             type="text"
-            className="border p-2 rounded mx-auto w-96 focus:outline-none"
+            className="border p-2 rounded mx-auto w-96 focus:outline-none dark:bg-gray-600"
             placeholder="Nama"
             required
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="email"
-            className="border p-2 rounded mx-auto w-96 focus:outline-none"
+            className="border p-2 rounded mx-auto w-96 focus:outline-none dark:bg-gray-600"
             placeholder="Email"
             required
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
-            className="border p-2 rounded mx-auto w-96 focus:outline-none"
+            className="border p-2 rounded mx-auto w-96 focus:outline-none dark:bg-gray-600"
             placeholder="Password"
             required
             minLength={6}

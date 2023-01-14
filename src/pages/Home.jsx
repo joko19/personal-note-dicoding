@@ -8,7 +8,6 @@ function Home() {
 
   useEffect(() => {
     getActiveNotes().then((res) => setData(res.data));
-    getUserLogged().then((res) => console.log(res));
   }, []);
 
   return (

@@ -1,4 +1,5 @@
-import { useState, useEffect, FC, ReactNode } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from 'prop-types'
 import ThemeContext from "./ThemeContext";
 
 const ThemeContextWrapper = ({ children }) => {
@@ -20,5 +21,9 @@ const ThemeContextWrapper = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+
+ThemeContextWrapper.propTypes = {
+  children: PropTypes.element.isRequired
+}
 
 export default ThemeContextWrapper;

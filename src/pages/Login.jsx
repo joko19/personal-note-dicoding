@@ -9,7 +9,6 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    console.log("submit");
     login({ email, password }).then((res) => {
       putAccessToken(res.data.accessToken);
       navigate("/");
@@ -26,13 +25,13 @@ function Login() {
         <input
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          className="border p-2 rounded mt-4 mx-auto w-96 focus:outline-none"
+          className="border p-2 rounded mt-4 mx-auto w-96 focus:outline-none dark:bg-gray-600"
           placeholder="Email"
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           type="password"
-          className="border p-2 rounded mt-2 mx-auto w-96 focus:outline-none"
+          className="border p-2 rounded mt-2 mx-auto w-96 focus:outline-none dark:bg-gray-600"
           placeholder="Password"
         />
         <button
