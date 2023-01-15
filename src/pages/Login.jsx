@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { login, putAccessToken } from "../utils/network-data";
+import {
+  getAccessToken,
+  getUserLogged,
+  login,
+  putAccessToken,
+} from "../utils/network-data";
 import { useNavigate } from "react-router-dom";
 
 function Login() {

@@ -7,13 +7,29 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
-import { getAccessToken, getUserLogged } from "./utils/network-data";
+import { getUserLogged } from "./utils/network-data";
 
 function PrivateRoute({ children }) {
-  const { data } = getUserLogged();
-  const token = getAccessToken();
+  const [isAuth, setIsAuth] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
-  return !data && !token ? <Navigate to="/login" /> : children;
+  useEffect(() => {
+    getUserLogged().then((res) => {
+      if (res.data) {
+        setIsAuth(true);
+        setIsLoading(false);
+      } else {
+        setIsAuth(false);
+        setIsLoading(false);
+      }
+    });
+  });
+
+  if (isLoading) {
+    return <div className="text-center p-40">Loading...</div>;
+  } else {
+    return isAuth ? children : <Navigate to="/login" />;
+  }
 }
 
 function App() {
